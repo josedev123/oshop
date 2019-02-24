@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AuthService } from './auth.service';
-import { routerNgProbeToken } from '@angular/router/src/router_module';
 import { Router } from '@angular/router';
 import { UserService } from './user.service';
 
@@ -12,11 +11,11 @@ import { UserService } from './user.service';
 export class AppComponent {
   constructor(private auth: AuthService, private router: Router, private userService: UserService) {
     auth.user$.subscribe(user => {
-      if (user) {
+      /*if (user) {
         userService.save(user);
         let returnUrl = localStorage.getItem('returnUrl');
         router.navigateByUrl(returnUrl);
-      }
+      }*/
     })
   }
 }
