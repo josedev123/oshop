@@ -7,18 +7,15 @@ import { Observable, Subscription } from 'rxjs';
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.css']
 })
-export class ProductFormComponent implements OnInit, OnDestroy {
+export class ProductFormComponent implements OnInit {
   categories$: Observable<any>;
   subscription: Subscription;
 
   constructor(categoryService: CategoryService) {
-    this.subscription = categoryService.getCategories().subscribe(categories => this.categories$ = categories);
+    this.categories$ = categoryService.getCategories();
   }
 
   ngOnInit() {
-  }
-  ngOnDestroy() {
-      this.subscription.unsubscribe(); 
   }
 
 }
