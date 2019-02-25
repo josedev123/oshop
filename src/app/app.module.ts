@@ -5,6 +5,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation'
+import { DataTableModule } from 'angular7-data-table';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -52,7 +53,9 @@ import { ProductService } from './product.service';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    DataTableModule.forRoot()
+
   ],
   providers: [
     AuthService,
