@@ -16,7 +16,7 @@ products: any[];
 subscription: Subscription;
 tableResource: DataTableResource<Product>;
   items: Product[] = [];
-  itemCount: number; 
+  itemCount: number;
 
   constructor(private productService: ProductService) {
     this.subscription = this.productService.getAll()
@@ -32,17 +32,17 @@ tableResource: DataTableResource<Product>;
       this.tableResource.count()
         .then(count => this.itemCount = count);
     }
-  
+
 
     reloadItems(params) {
-      if (!this.tableResource) return;
-  
+      if (!this.tableResource) { return; }
+
       this.tableResource.query(params)
-        .then(items => this.items = items);    
+        .then(items => this.items = items);
     }
 
-    filter(query: string) { 
-      let filteredProducts = (query) ?
+    filter(query: string) {
+      const filteredProducts = (query) ?
         this.products.filter(p => p.title.toLowerCase().includes(query.toLowerCase())) :
         this.products;
 
@@ -52,7 +52,7 @@ tableResource: DataTableResource<Product>;
     ngOnDestroy() {
       this.subscription.unsubscribe();
     }
-  
+
   ngOnInit() {
   }
 

@@ -16,7 +16,7 @@ create(product) {
 
 getAll() {
   return this.db.list('/products').snapshotChanges().pipe(
-    map(actions => 
+    map(actions =>
       actions.map(a => ({ key: a.key, ...a.payload.val() }))
     ));
 }
